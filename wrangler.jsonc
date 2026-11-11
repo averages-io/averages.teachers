@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // teach.averages.io: the pages, plus /api/* handed to the averages-teachers-api Worker.
+  // Deploy averages.teachers.api first: the service binding below needs it to exist.
+  "name": "averages-teachers",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Everything else is served as a file without running the Worker.
+    "run_worker_first": ["/api", "/api/*"]
+  },
+  "services": [{ "binding": "API", "service": "averages-teachers-api" }],
+  // Cloudflare creates the DNS record and certificate for this the first time it's deployed.
+  "routes": [{ "pattern": "teach.averages.io", "custom_domain": true }]
+}
