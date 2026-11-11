@@ -37,7 +37,7 @@ The home page shows "Server ready" when it can reach the API.
 ## Files
 
 - `worker/index.js`: sends `/api/*` to the API.
-- `public/`: the pages. `js/passkeys.js` is the browser side of passkeys. `favicon.ico`, `favicon.svg` and `apple-touch-icon.png` are the black and white mark. `mark.svg` is the coral mark used on the pages.
+- `public/`: the pages. `js/passkeys.js` is the browser side of passkeys. `favicon.ico`, `favicon.svg` and `apple-touch-icon.png` are the black mark (a black to dark gray gradient). `mark.svg` is the coral mark used on the pages.
 - `public/_headers`: security headers (a strict Content-Security-Policy: scripts and styles only from this origin, no inline scripts).
 
 ## License
